@@ -1,0 +1,13 @@
+bin/
+obj/
+.vs/
+*.user
+*.suo
+artifacts/
+TestResults/
+*.DotSettings.user
+.idea/
+.DS_Store
+*.log
+.env
+.env.*

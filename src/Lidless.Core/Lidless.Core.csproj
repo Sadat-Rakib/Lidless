@@ -1,0 +1,7 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>Lidless</RootNamespace>
+    <Description>Pure keep-awake policy, timer, watchdog, and settings logic for Lidless.</Description>
+  </PropertyGroup>
+</Project>

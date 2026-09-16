@@ -1,0 +1,13 @@
+<Project>
+  <PropertyGroup>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <Version>1.0.0</Version>
+    <Authors>Sadat-Rakib</Authors>
+    <Company>Sadat-Rakib</Company>
+    <Copyright>Copyright (c) 2026 Nghia Luong; Windows port © 2026 Sadat-Rakib</Copyright>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+</Project>
