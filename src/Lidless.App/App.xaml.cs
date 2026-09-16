@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.IO;
 using System.Drawing;
 using System.Windows;
 using System.Windows.Threading;
@@ -22,22 +23,15 @@ public partial class App : System.Windows.Application
     private System.Drawing.Icon? _iconOff;
     private System.Drawing.Icon? _iconOn;
 
-    [STAThread]
-    public static void Main(string[] args)
+    protected override void OnStartup(StartupEventArgs e)
     {
-        if (args.Any(a => string.Equals(a, "--watchdog", StringComparison.OrdinalIgnoreCase)))
+        if (e.Args.Any(a => string.Equals(a, "--watchdog", StringComparison.OrdinalIgnoreCase)))
         {
-            Environment.Exit(WatchdogProgram.Run());
+            Environment.ExitCode = WatchdogProgram.Run();
+            Shutdown();
             return;
         }
 
-        var app = new App();
-        app.InitializeComponent();
-        app.Run();
-    }
-
-    protected override void OnStartup(StartupEventArgs e)
-    {
         base.OnStartup(e);
 
         _mutex = new Mutex(true, @"Local\Lidless.SingleInstance", out var created);

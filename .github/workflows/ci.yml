@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build-test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Restore
+        run: dotnet restore Lidless.sln
+
+      - name: Build Release
+        run: dotnet build Lidless.sln --configuration Release --no-restore
+
+      - name: Test
+        run: dotnet test Lidless.sln --configuration Release --no-build --nologo
+
+      - name: Publish
+        run: dotnet publish src\Lidless.App\Lidless.App.csproj -c Release -r win-x64 --self-contained false -o artifacts\Lidless
+
+      - name: Upload Lidless-windows-x64
+        uses: actions/upload-artifact@v4
+        with:
+          name: Lidless-windows-x64
+          path: artifacts/Lidless
+          if-no-files-found: error
+
+      - name: Forbidden provenance strings
+        shell: bash
+        run: |
+          if git grep -i -E 'Blueturboguy07|publikhq|forked from|cloned from' -- ':!.github/workflows/ci.yml'; then
+            echo "Forbidden provenance string found" >&2
+            exit 1
+          fi
+          echo "Provenance grep clean"
