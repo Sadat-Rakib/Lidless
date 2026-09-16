@@ -18,11 +18,6 @@
     <Product>Lidless</Product>
   </PropertyGroup>
   <ItemGroup>
-    <!-- UseWPF + UseWindowsForms both inject implicit usings; Button/ComboBox/Brush collide. -->
-    <Using Remove="System.Windows.Forms" />
-    <Using Remove="System.Drawing" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Lidless.Core\Lidless.Core.csproj" />
   </ItemGroup>
   <ItemGroup>
