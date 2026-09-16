@@ -4,6 +4,7 @@
     <TargetFramework>net8.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
     <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
     <RootNamespace>Lidless.App</RootNamespace>
     <AssemblyName>Lidless</AssemblyName>
     <ApplicationManifest>app.manifest</ApplicationManifest>
