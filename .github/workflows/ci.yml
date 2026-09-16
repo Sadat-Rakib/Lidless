@@ -38,7 +38,7 @@ jobs:
       - name: Forbidden provenance strings
         shell: bash
         run: |
-          if git grep -i -E 'Blueturboguy07|publikhq|forked from|cloned from'; then
+          if git grep -i -E 'Blueturboguy07|publikhq|forked from|cloned from' -- ':!.github/workflows/ci.yml'; then
             echo "Forbidden provenance string found" >&2
             exit 1
           fi
