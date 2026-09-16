@@ -14,7 +14,8 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>disable</ImplicitUsings>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <NoWarn>$(NoWarn);CS1591</NoWarn>
+    <!-- WFAC010 wants WinForms SetHighDpiMode; this app is WPF-first and uses the manifest. -->
+    <NoWarn>$(NoWarn);CS1591;WFAC010</NoWarn>
     <Description>Windows tray app: keep your PC awake with the lid closed.</Description>
     <Product>Lidless</Product>
   </PropertyGroup>
